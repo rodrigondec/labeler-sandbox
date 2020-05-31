@@ -29,6 +29,10 @@ async function label() {
     issueNumber = context.payload.project_card.content_url.split("/").pop()
   }
 
+  if (issueNumber === undefined) {
+    return "No action being taken. Ignoring because issueNumber was not identified";
+  }
+
   // query for the most recent information about the issue. Between the issue being created and
   // the action running, labels or asignees could have been added
   var updatedIssueInformation = await octokit.issues.get({
