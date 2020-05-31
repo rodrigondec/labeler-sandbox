@@ -64,6 +64,8 @@ async function label() {
     return !labelsToRemove.includes(value);
   });
 
+  console.log(labels)
+
   await octokit.issues.update({
     owner: ownerName,
     repo: repoName,
