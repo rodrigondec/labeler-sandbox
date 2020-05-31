@@ -1,12 +1,12 @@
 const github = require("@actions/github");
 const core = require("@actions/core");
 
-const labelsToAdd = core
+var labelsToAdd = core
   .getInput("add-labels")
   .split(",")
   .map(x => x.trim());
 
-const labelsToRemove = core
+var labelsToRemove = core
   .getInput("remove-labels")
   .split(",")
   .map(x => x.trim());
