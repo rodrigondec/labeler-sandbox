@@ -55,11 +55,22 @@ async function label() {
     }
   }
 
+  console.log('before add')
+  console.log(labels)
+
+  console.log(labelsToAdd)
+
+  console.log(labelsToRemove)
+
   for (let labelToAdd of labelsToAdd) {
     if (!labels.includes(labelToAdd)) {
       labels.push(labelToAdd);
     }
   }
+
+  console.log('after add')
+  console.log(labels)
+
   labels = labels.filter((value) => !labelsToRemove.includes(value));
 
   console.log(labels)
