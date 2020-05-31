@@ -42,6 +42,6 @@ jobs:
           github.event.project_card.column_id == 9423437
         )
       with:
-        repo-token: ${{secrets.GH_ACESS_TOKEN}}
+        repo-token: ${{secrets.GH_ACCESS_TOKEN}}
         add-labels: "Status: Bloqueado"
         remove-labels: "Status: Em Progresso"
