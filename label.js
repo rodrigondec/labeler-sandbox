@@ -60,9 +60,7 @@ async function label() {
       labels.push(labelToAdd);
     }
   }
-  labels = labels.filter(value => {
-    return !labelsToRemove.includes(value);
-  });
+  labels = labels.filter((value) => !labelsToRemove.includes(value));
 
   console.log(labels)
 
