@@ -33,6 +33,10 @@ async function label() {
     return "No action being taken. Ignoring because issueNumber was not identified";
   }
 
+  labelsToAdd = labelsToAdd.filter(value => ![''].includes(value))
+
+  labelsToRemove = labelsToRemove.filter(value => ![''].includes(value))
+
   // query for the most recent information about the issue. Between the issue being created and
   // the action running, labels or asignees could have been added
   var updatedIssueInformation = await octokit.issues.get({
@@ -71,8 +75,9 @@ async function label() {
   console.log('after add')
   console.log(labels)
 
-  labels = labels.filter((value) => !labelsToRemove.includes(value));
+  labels = labels.filter(value => !labelsToRemove.includes(value));
 
+  console.log('after remove')
   console.log(labels)
 
   await octokit.issues.update({
