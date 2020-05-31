@@ -5,7 +5,7 @@ on:
     types: [moved]
 
 jobs:
-  build:
+  labels-from-project:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -23,7 +23,7 @@ jobs:
         remove-labels: "Status: Bloqueado, Status: Em Progresso"
 
     - name: label issues from 'In progress'
-      uses: andymckay/labeler@1.0.2
+      uses: ./.
       if: |
         github.event_name == 'project_card' &&
         (
@@ -35,7 +35,7 @@ jobs:
         remove-labels: "Status: Bloqueado"
 
     - name: label issues from 'Blocked'
-      uses: andymckay/labeler@1.0.2
+      uses: ./.
       if: |
         github.event_name == 'project_card' &&
         (
